@@ -18,14 +18,31 @@ function Login ({onSuccess}) {
             </h1>
 
             <form className="space-y-4">
+                
                 <div>
-                    <label>Email</label>
+                    <label className="block text-sm font-medium mb-1">Email</label>
                     <input
                         type="email"
                         className="w-full rounded-lg border px-3 py-2 outline-none focus:ring"
                         placeholder="your@email.com"
                         value={form.email}
                         onChange={e => updateField('email', e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <label className="block text-sm font-medium mb-1">Password</label>
+                    <a href="#" className="text-sm text-blue-600 hover:underline">Forgot password?</a>
+                </div>
+
+                <div>
+                    <input
+                        type="password"
+                        className="w-full rounded-lg border px-3 py-2 outline-none focus:ring"
+                        placeholder="••••••••"
+                        value={form.password}
+                        onChange={e => updateField('password', e.target.value)}
                         required
                     />
                 </div>
