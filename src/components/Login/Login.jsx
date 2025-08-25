@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { FaGoogle } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 function Login ({onSuccess}) {
 
@@ -69,6 +70,17 @@ function Login ({onSuccess}) {
                 >
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
+                
+                <div className="flex items-center gap-3 my-4">
+                    <div className="flex-1 h-px bg-gray-200" />
+                    <span className="text-xs text-gray-500">Or continue with</span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                </div>
+
+                <div>
+                    <button type="button" className="rounded-lg border py-2"><FaGoogle /></button>
+                    <button className="rounded-lg border py-2"><FaLinkedin /></button>
+                </div>
             </form>
         </div>
     )
