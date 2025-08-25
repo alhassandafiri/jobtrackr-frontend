@@ -78,8 +78,8 @@ function Login ({onSuccess}) {
                 </div>
 
                 <div>
-                    <button type="button" className="rounded-lg border py-2"><FaGoogle /></button>
-                    <button className="rounded-lg border py-2"><FaLinkedin /></button>
+                    <button type="button" className="rounded-lg border py-2"><FaGoogle /> Google</button>
+                    <button className="rounded-lg border py-2"><FaLinkedin /> LinkedIn</button>
                 </div>
             </form>
         </div>
