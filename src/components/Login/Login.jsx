@@ -17,7 +17,19 @@ function Login ({onSuccess}) {
                 Welcome Back
             </h1>
 
-            <form></form>
+            <form className="space-y-4">
+                <div>
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        className="w-full rounded-lg border px-3 py-2 outline-none focus:ring"
+                        placeholder="your@email.com"
+                        value={form.email}
+                        onChange={e => updateField('email', e.target.value)}
+                        required
+                    />
+                </div>
+            </form>
         </div>
     )
 }
