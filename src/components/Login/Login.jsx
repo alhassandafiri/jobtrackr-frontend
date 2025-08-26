@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FaGoogle } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaGoogle, FaLinkedin } from "react-icons/fa";
 
 function Login ({onSuccess}) {
 
@@ -11,6 +10,10 @@ function Login ({onSuccess}) {
     function updateField(key, value) {
         setForm(prev => ({ ...prev, [key]: value }));
     }
+
+    console.log("ENV VAR:", import.meta.env.VITE_API_BASE_URL);
+
+    
 
     return(
         <div className="max-w-md w-full bg-white shadow-x1 rounded-2x1 p-6">
