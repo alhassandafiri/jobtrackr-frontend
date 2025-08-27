@@ -17,7 +17,7 @@ function Login ({onSuccess}) {
         e.preventDefault();
         setError(null);
     
-        if (!form.email | !form.password) {
+        if (!form.email || !form.password) {
             setError('Please enter your email or password.');
             return;
         }
