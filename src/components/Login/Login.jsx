@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaGoogle, FaLinkedin } from "react-icons/fa";
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 function Login ({onSuccess}) {
 
     const [form, setForm] = useState({ email: '', password: '', remember: false});
@@ -11,13 +13,10 @@ function Login ({onSuccess}) {
         setForm(prev => ({ ...prev, [key]: value }));
     }
 
-    console.log("ENV VAR:", import.meta.env.VITE_API_BASE_URL);
-
-    
 
     return(
-        <div className="max-w-md w-full bg-white shadow-x1 rounded-2x1 p-6">
-            <h1 className="text-2x1 font-semibold mb-6">
+        <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-6">
+            <h1 className="text-2xl font-semibold mb-6">
                 Welcome Back
             </h1>
 
