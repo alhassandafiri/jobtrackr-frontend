@@ -13,6 +13,53 @@ function Login ({onSuccess}) {
         setForm(prev => ({ ...prev, [key]: value }));
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setError(null);
+    
+        if (!form.email | !form.password) {
+            setError('Please enter your email or password.');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const res = await fetch(`${API_BASE}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({
+                    email: form.email,
+                    password: form.password,
+                }),
+            });
+
+            if (!res.ok) {
+                let msg = 'Login failed';
+                try {
+                    const data = await res.json();
+                    msg = data.message || msg;
+                } catch {
+                    //continue regardless of error
+                }
+                throw new Error(msg);
+            }
+
+            const data = await res.json();
+
+            localStorage.setItem("token", data.token);
+
+            onSuccess?.(data);
+
+        } catch (err) {
+            setError(err.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    }
+
 
     return(
         <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-6">
@@ -20,7 +67,7 @@ function Login ({onSuccess}) {
                 Welcome Back
             </h1>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
                 
                 <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
