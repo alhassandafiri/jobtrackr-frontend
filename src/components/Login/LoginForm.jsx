@@ -3,7 +3,7 @@ import { FaGoogle, FaLinkedin } from "react-icons/fa";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-function Login ({onSuccess}) {
+function LoginForm ({onSuccess}) {
 
     const [form, setForm] = useState({ email: '', password: '', remember: false});
     const [loading, setLoading] = useState(false);
@@ -135,4 +135,4 @@ function Login ({onSuccess}) {
     )
 }
 
-export default Login;
+export default LoginForm;
