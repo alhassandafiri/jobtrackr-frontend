@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 function RegisterForm () {
-    const [form, setForm] = useState({ email: '', password: '', remember: false});
+    const [form, setForm] = useState({ name: '', email: '', password: '', password_confirmation: '', remember: false});
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -21,10 +21,10 @@ function RegisterForm () {
                 <div>
                     <label className="block text-sm font-medium mb-1">Username</label>
                     <input
-                    type="text"
+                    type="name"
                     placeholder="Username"
-                    value={form.email}
-                    onChange={e => updateField('text', e.target.value)}
+                    value={form.name}
+                    onChange={e => updateField('name', e.target.value)}
                     required
                     />
                 </div>
@@ -58,8 +58,8 @@ function RegisterForm () {
                     type="password"
                     className="w-full rounded-lg border px-3 py-2 outline-none focus:ring"
                     placeholder="••••••••"
-                    value={form.password}
-                    onChange={e => updateField('password', e.target.value)}
+                    value={form.password_confirmation}
+                    onChange={e => updateField('password_confirmation', e.target.value)}
                     required
                     />
                 </div>
@@ -68,7 +68,7 @@ function RegisterForm () {
                     <input
                         type="checkbox"
                         checked={form.remember}
-                        onChange={e => updateField('checkbox', e.target.checked)}
+                        onChange={e => updateField('remember', e.target.checked)}
                     />
                     I agree to the <a href="#" className="text-sm text-blue-600 hover:underline">Terms</a> and <a href="#" className="text-sm text-blue-600 hover:underline">Privacy Policy</a>    
                 </label>
