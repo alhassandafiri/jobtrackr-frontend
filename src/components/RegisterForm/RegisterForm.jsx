@@ -1,3 +1,4 @@
+import { FaGoogle, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 
 
@@ -17,6 +18,17 @@ function RegisterForm () {
             </h1>
 
             <form>
+                <div>
+                    <label className="block text-sm font-medium mb-1">Username</label>
+                    <input
+                    type="text"
+                    placeholder="Username"
+                    value={form.email}
+                    onChange={e => updateField('text', e.target.value)}
+                    required
+                    />
+                </div>
+
                 <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
                     <input
@@ -56,7 +68,7 @@ function RegisterForm () {
                     <input
                         type="checkbox"
                         checked={form.remember}
-                        onChange={e => updateField('checkbox', e.target.value)}
+                        onChange={e => updateField('checkbox', e.target.checked)}
                     />
                     I agree to the <a href="#" className="text-sm text-blue-600 hover:underline">Terms</a> and <a href="#" className="text-sm text-blue-600 hover:underline">Privacy Policy</a>    
                 </label>
