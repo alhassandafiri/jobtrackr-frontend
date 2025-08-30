@@ -3,6 +3,8 @@ import { useState } from "react";
 
 function RegisterForm () {
     const [form, setForm] = useState({ email: '', password: '', remember: false});
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     function updateField(key, value) {
         setForm(prev => ({...prev, [key]: value}))
@@ -59,6 +61,30 @@ function RegisterForm () {
                     I agree to the <a href="#" className="text-sm text-blue-600 hover:underline">Terms</a> and <a href="#" className="text-sm text-blue-600 hover:underline">Privacy Policy</a>    
                 </label>
 
+                {error && (
+                    <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+                        {error}
+                    </div>
+                )}
+
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className=""
+                >
+                    {loading ? 'Registering...' : 'Register'}
+                </button>
+
+                <div className="flex items-center gap-3 my-4">
+                    <div className="flex-1 h-px bg-gray-200" />
+                    <span className="text-xs text-gray-500">Or continue with</span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                </div>
+                
+                <div>
+                    <button type="button" className="rounded-lg border py-2"><FaGoogle /> Google</button>
+                    <button className="rounded-lg border py-2"><FaLinkedin /> LinkedIn</button>
+                </div>
             </form>
 
         </div>
