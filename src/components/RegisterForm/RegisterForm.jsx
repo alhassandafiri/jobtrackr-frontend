@@ -21,7 +21,7 @@ function RegisterForm () {
                 <div>
                     <label className="block text-sm font-medium mb-1">Username</label>
                     <input
-                    type="name"
+                    type="text"
                     placeholder="Username"
                     value={form.name}
                     onChange={e => updateField('name', e.target.value)}
