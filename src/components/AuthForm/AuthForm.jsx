@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoginForm from "../Login/LoginForm";
+import LoginForm from "../LoginForm/LoginForm";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
