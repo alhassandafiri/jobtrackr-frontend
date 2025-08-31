@@ -115,7 +115,7 @@ function LoginForm ({onSuccess}) {
                 <button
                     type="submit"
                     disabled={loading}
-                    className=" w-full rounded-lg bg-blue-600 text-white font-medium py-2.5 disabled:opacity-60"
+                    className="w-full rounded-lg bg-blue-600 text-white font-medium py-2.5 disabled:opacity-60"
                 >
                     {loading ? 'Logging in...' : 'Login'}
                 </button>

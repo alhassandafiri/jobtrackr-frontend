@@ -55,6 +55,40 @@ function AuthForm() {
       </div>
     );
   }
+
+  return(
+    <div className="max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6">
+      <div className="flex mb-6 border-b">
+
+        <button
+          className={`flex-1 py-2 text-center 
+          ${activeTab === 'login'
+            ? 'border-b-2 border-blue-500 font-semibold text-blue-600'
+            : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => setActiveTab('login')}
+        >
+        Login </button>
+
+        <button
+          className={`flex-1 py-2 text-center
+          ${activeTab === 'register'
+            ? 'border-b-2 border-blue-500 font-semibold text-blue-600'
+            : 'text-gray-500 hover:text-gray-700'
+          } `}
+          onClick={() => setActiveTab('register')}
+        >
+        Register
+        </button>
+      </div>
+
+      {activeTab === 'login' ? (
+        <LoginForm onSuccess={handleLoginSuccess} />
+      ) : (
+        <RegisterForm />
+      )}
+    </div>
+  );
 }
 
 
