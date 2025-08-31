@@ -120,16 +120,26 @@ function LoginForm ({onSuccess}) {
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
                 
-                <div className="flex items-center gap-3 my-4">
-                    <div className="flex-1 h-px bg-gray-200" />
-                    <span className="text-xs text-gray-500">Or continue with</span>
-                    <div className="flex-1 h-px bg-gray-200" />
-                </div>
+     <div className="flex items-center gap-3">
+        <div className="flex-1 h-px bg-gray-200" />
+        <span className="text-xs text-gray-500">Or continue with</span>
+        <div className="flex-1 h-px bg-gray-200" />
+      </div>
 
-                <div>
-                    <button type="button" className="rounded-lg border py-2"><FaGoogle /> Google</button>
-                    <button className="rounded-lg border py-2"><FaLinkedin /> LinkedIn</button>
-                </div>
+      <div className="grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          className="flex items-center justify-center gap-2 rounded-lg border py-2 hover:bg-gray-50 transition"
+        >
+          <FaGoogle /> Google
+        </button>
+        <button
+          type="button"
+          className="flex items-center justify-center gap-2 rounded-lg border py-2 hover:bg-gray-50 transition"
+        >
+          <FaLinkedin /> LinkedIn
+        </button>
+      </div>
             </form>
         </div>
     )
