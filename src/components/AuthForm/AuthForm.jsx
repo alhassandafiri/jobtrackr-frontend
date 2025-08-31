@@ -1,11 +1,13 @@
 import { useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 function AuthForm() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(() => localStorage.getItem("token"));
+  const [activeTab, setActiveTab] = useState('login');
 
   function handleLoginSuccess(data) {
     setUser(data.user);
@@ -35,16 +37,24 @@ function AuthForm() {
         localStorage.removeItem('token');
     }
   }
+  if (token) {
+    return (
+      <div className="max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6 text-center">
+        <h2 className="text-2xl font-semibold mb-2">
+          Welcome, {user?.name || 'User'}!
+        </h2>
 
-  return token ? (
-    <div>
-      <h2>Welcome, {user?.name}!</h2>
-      <p>You are logged in.</p>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  ) : (
-    <LoginForm onSuccess={handleLoginSuccess} />
-  );
+        <p className="mb-4">You are logged in.</p>
+
+        <button 
+        onClick={handleLogout}
+        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
+    );
+  }
 }
 
 
