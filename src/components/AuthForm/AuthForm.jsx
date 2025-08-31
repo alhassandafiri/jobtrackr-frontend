@@ -61,7 +61,7 @@ function AuthForm() {
       <div className="flex mb-6 border-b">
 
         <button
-          className={`flex-1 py-2 text-center 
+          className={`flex-1 py-2 text-center cursor-pointer 
           ${activeTab === 'login'
             ? 'border-b-2 border-blue-500 font-semibold text-blue-600'
             : 'text-gray-500 hover:text-gray-700'
@@ -71,7 +71,7 @@ function AuthForm() {
         Login </button>
 
         <button
-          className={`flex-1 py-2 text-center
+          className={`flex-1 py-2 text-center cursor-pointer
           ${activeTab === 'register'
             ? 'border-b-2 border-blue-500 font-semibold text-blue-600'
             : 'text-gray-500 hover:text-gray-700'
