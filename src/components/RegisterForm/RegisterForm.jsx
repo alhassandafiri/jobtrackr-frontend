@@ -74,7 +74,7 @@ function RegisterForm ({onSuccess}) {
         <input
           type="text"
           placeholder="Username"
-          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-blue-200"
+          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-sky-200"
           value={form.name}
           onChange={(e) => updateField("name", e.target.value)}
           required
@@ -86,7 +86,7 @@ function RegisterForm ({onSuccess}) {
         <input
           type="email"
           placeholder="your@email.com"
-          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-blue-200"
+          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-sky-200"
           value={form.email}
           onChange={(e) => updateField("email", e.target.value)}
           required
@@ -97,7 +97,7 @@ function RegisterForm ({onSuccess}) {
         <label className="block text-sm font-medium mb-1">Password</label>
         <input
           type="password"
-          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-blue-200"
+          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-sky-200"
           placeholder="••••••••"
           value={form.password}
           onChange={(e) => updateField("password", e.target.value)}
@@ -111,7 +111,7 @@ function RegisterForm ({onSuccess}) {
         </label>
         <input
           type="password"
-          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-blue-200"
+          className="w-full rounded-lg border px-3 py-2 outline-none focus:ring focus:ring-sky-200"
           placeholder="••••••••"
           value={form.password_confirmation}
           onChange={(e) =>
@@ -128,11 +128,11 @@ function RegisterForm ({onSuccess}) {
           onChange={(e) => updateField("remember", e.target.checked)}
         />
         I agree to the
-        <a href="#" className="text-sm text-blue-600 hover:underline">
+        <a href="#" className="text-sm text-sky-600 hover:underline">
         Terms
         </a> 
         and
-        <a href="#" className="text-sm text-blue-600 hover:underline">
+        <a href="#" className="text-sm text-sky-600 hover:underline">
         Privacy Policy
         </a>
       </label>
@@ -146,7 +146,7 @@ function RegisterForm ({onSuccess}) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-blue-600 text-white font-medium py-2.5 hover:bg-blue-700 transition disabled:opacity-60"
+        className="w-full rounded-lg bg-sky-600 text-white font-medium py-2.5 hover:bg-sky-700 transition disabled:opacity-60"
       >
         {loading ? "Registering..." : "Register"}
       </button>
