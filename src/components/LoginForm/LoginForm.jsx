@@ -51,7 +51,7 @@ function LoginForm ({onSuccess}) {
 
             localStorage.setItem("token", data.token);
 
-            onSuccess?.(data);
+            onSuccess?.({ user:data.user, token: data.token});
 
         } catch (err) {
             setError(err.message || "Something went wrong.");
