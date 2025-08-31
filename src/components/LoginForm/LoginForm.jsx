@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { FaGoogle, FaLinkedin } from "react-icons/fa";
+import { FaGoogle, FaLinkedin, FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import { FaLock } from "react-icons/fa";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
