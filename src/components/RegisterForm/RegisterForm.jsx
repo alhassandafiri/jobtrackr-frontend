@@ -1,8 +1,9 @@
-import { FaGoogle, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
+import { FaGoogle, FaLinkedin } from "react-icons/fa";
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-function RegisterForm () {
+function RegisterForm ({onSuccess}) {
     const [form, setForm] = useState({ name: '', email: '', password: '', password_confirmation: '', remember: false});
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -11,13 +12,63 @@ function RegisterForm () {
         setForm(prev => ({...prev, [key]: value}))
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setError(null);
+
+        if (!form.name || !form.email || !form.password || !form.password_confirmation) {
+            setError('Please make sure to fill in all input boxes.');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const res = await fetch(`${API_BASE}/register`, {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    password: form.password,
+                    password_confirmation: form.password_confirmation,
+                }),
+            });
+
+            if (!res.ok) {
+                let msg = 'Registration failed';
+                try {
+                    const data = await res.json();
+                    msg = data.message || msg;
+                } catch {
+                    //continue regardless of error
+                }
+                throw new Error(msg);
+            }
+
+            const data = await res.json();
+            console.log("Register response:", data);
+
+            localStorage.setItem("token", data.token);
+    
+            onSuccess?.({ user:data.user, token: data.token});
+
+        } catch (err) {
+            setError(err.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
   <div className="max-w-md w-full bg-white rounded-2xl p-6">
     <h1 className="text-2xl font-semibold mb-6">
       Create an account
     </h1>
 
-    <form className="space-y-4">
+    <form className="space-y-4" onSubmit={handleSubmit}>
       <div>
         <label className="block text-sm font-medium mb-1">Username</label>
         <input
@@ -76,13 +127,13 @@ function RegisterForm () {
           checked={form.remember}
           onChange={(e) => updateField("remember", e.target.checked)}
         />
-        I agree to the{" "}
+        I agree to the
         <a href="#" className="text-sm text-blue-600 hover:underline">
-          Terms
-        </a>{" "}
-        and{" "}
+        Terms
+        </a> 
+        and
         <a href="#" className="text-sm text-blue-600 hover:underline">
-          Privacy Policy
+        Privacy Policy
         </a>
       </label>
 
@@ -106,7 +157,6 @@ function RegisterForm () {
         <div className="flex-1 h-px bg-gray-200" />
       </div>
 
-      {/* Social buttons */}
       <div className="grid grid-cols-2 gap-3">
         <button
           type="button"
