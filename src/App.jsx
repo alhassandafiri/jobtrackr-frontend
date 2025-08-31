@@ -7,7 +7,9 @@ function App() {
       <div className="absolute top-6 left-6">
         <Logo />
       </div>
-      <AuthForm />
+      <div className="pt-32">
+        <AuthForm />
+      </div>
     </>
   )
 }
