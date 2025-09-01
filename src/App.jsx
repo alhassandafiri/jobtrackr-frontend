@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./components/AuthContext/AuthContext"
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
-import AuthForm from "./components/AuthForm/AuthForm"
+import AuthPage from "./components/AuthPage/AuthPage"
 import Logo from "./components/Logo/Logo"
 import Kanban from "./components/Kanban/Kanban"
 
@@ -10,7 +10,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/auth" element={<AuthForm />} />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/" element={ <ProtectedRoute> <Kanban /> </ProtectedRoute> } />
 
         </Routes>
